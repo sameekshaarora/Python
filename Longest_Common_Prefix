@@ -1,0 +1,37 @@
+// Problem Statement - Longest Common Prefix
+// Write a function to find the longest common prefix string amongst an array of strings.
+// If there is no common prefix, return an empty string "".
+// Example 1: Input: ["flower","flow","flight"] ; Output: "fl"
+
+class Solution:
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        """
+        Runtime : 48 ms
+        Solution: 
+        Step1 Check if strs is empty AND capture the smallest value from the entire list in "SMALLEST_VAL"
+        Step2 enumerate from each character from the smallest_value i.e. 
+        Key:Val
+        0  f
+        1  l
+        2  o
+        3  w
+        Step3 from the rest of the list matches each character position by position only upto max of length of SMALLEST_VAL
+        for "flower" AND "flight"
+        0  f AND 0 f 
+        1  l AND 1 l
+        2  o AND 2 i => smallest_value as "fl
+        """
+        if not strs:
+            return ''
+        
+        smallest_val = min(strs)
+        for key,val in enumerate(smallest_val):
+            for values in strs:
+                if values[key] != val:
+                    return smallest_val[:key]
+        
+        return smallest_val
