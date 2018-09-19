@@ -1,0 +1,39 @@
+// Problem Statement - Reverse Integer 
+// Given a 32-bit signed integer, reverse digits of an integer. 
+// Range integers within the 32-bit signed integer range: [−231,  231 − 1]
+
+class Solution:
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        """
+        Solution:
+        Step1 Check if value less than ZERO, convert it to positive and set flag
+        Step2 Multiply existing number with 10 & find the remainder of existing number
+        Step3 Divide existing number by 10 & type conversion to INT
+        Step4 If input was negative number than set output back to negative number
+        Runtime : 32ms
+        """
+        flag_negative = "Null"
+        if ( x < 0):
+            x = 0 - x
+            flag_negative = "true"
+        elif ( x > 0 ):
+            "Do nothing"
+            
+        output_val = 0
+        while(x > 0):
+            output_val = output_val*10 + x % 10 
+            x = int(x/10)
+        
+        if flag_negative == "true":
+            output_val = 0 - output_val
+        elif flag_negative == "false":
+            "do nothing"
+            
+        if output_val <= 2147483647 and output_val >= -2147483648:
+                return output_val
+        else:
+                return 0
