@@ -1,0 +1,35 @@
+// Problem Statement - Palidrome Number
+// Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+// Example 1: Input: 121 ; Output: true
+// Example 2: Input: -121 ; Output: false
+// Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+// Example 3: Input: 10 ;  Output: false
+// Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+
+class Solution:
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        
+        """
+        Solution:
+        Reverse the number
+        Step1 Multiply existing number with 10 & find the remainder of existing number
+        Step2 Divide existing number by 10 & type conversion to INT
+        Step3 Compare the reverse and actual number
+        Runtime : 32ms
+        """
+        rev_val = 0
+        actual_num = x
+        while(x > 0):
+            rev_val = rev_val*10 + x % 10 
+            x = int(x/10)
+
+            
+        if rev_val == actual_num :
+            return True
+        else:
+            return False
+            
