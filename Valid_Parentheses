@@ -1,0 +1,30 @@
+// Problem Statement - Valid Parentheses
+// https://leetcode.com/problems/valid-parentheses/description/
+
+class Solution:
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        """
+        Step1 form dictionary of valid combinations
+        step2 read the string and pass tha "opening brackets" value to new array
+        step3 if value of string is "closing bracket"; 
+              3.1 check if new_array is blank OR 
+              3.2 read the last last value in new array and its corresponding "VALUE" in my_dict
+        """
+        
+        my_dict = { '{' : '}' ,
+                    '(' : ')' , 
+                    '[' : ']' }
+        new_arr = []
+        
+        for value in s:
+            if value in my_dict:
+                new_arr.append(value)
+                
+            elif value not in my_dict:
+                if len(new_arr) == 0 or my_dict[new_arr.pop()] != value:
+                    return False
+        return len(new_arr) == 0
